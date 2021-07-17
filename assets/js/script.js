@@ -17,29 +17,43 @@ let list=[];
  for (i=0;i<workDayLength;i++){
      let rowDiv=$('<div>');
      rowDiv.addClass('row');
+     
+     // show hour
      let hourDiv=$('<div>');
      hourDiv.addClass('hour col-1 text-center');
      hourDiv.text(moment(i+startHour, ["H"]).format("h A"));
      rowDiv.append(hourDiv);
-     let eventDiv=$('<div>');
+     // show event
+     let eventArea=$('<textarea>');
+     eventArea.attr('id', 'text'+i);
      if ((i+startHour)<currenHour){
-         eventDiv.addClass('past col-10 ');
+         eventArea.addClass('past col-10 ');
      }else if((i+startHour)===currenHour){
-        eventDiv.addClass('present col-10 ');
+        eventArea.addClass('present col-10 ');
      }else{
-        eventDiv.addClass('future col-10 ');
+        eventArea.addClass('future col-10 ');
      }
-     eventDiv.text(list[i]+"rerer");
-     rowDiv.append(eventDiv);
+     eventArea.text(list[i]+"rerer");
+     rowDiv.append(eventArea);
+     // show save button
      let saveBtn=$('<button>');
+     saveBtn.attr('data-list-item', i);
      saveBtn.addClass("saveBtn col-1");
+     
      let saveI=$('<i>');
      saveI.addClass("fas fa-save");
      saveBtn.append(saveI);
+     saveBtn.on('click', function(event){
+        event.preventDefault();
+       let cuurentRow=$(this).attr('data-list-item');
+        list[cuurentRow]=$('#text'+cuurentRow).val();
+      localStorage.setItem('timelist',JSON.stringify(list));
+     });
+     
      rowDiv.append(saveBtn);
      
      $('#container').append(rowDiv);
- }
+    }
 console.log(list);
 
 
