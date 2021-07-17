@@ -4,15 +4,8 @@ body {
   line-height: 1;
 }
 
-textarea{
-  background: transparent;
-  border: none;
-  resize: none;
-  color: #000000;
-  border-left: 1px solid black;
-  padding: 10px;
-}
 
+/* styles for header */
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -26,6 +19,7 @@ textarea{
   white-space: pre-wrap;
 }
 
+/* styles for timeblocks */
 .time-block{
   text-align: center;
   border-radius: 15px;
@@ -46,21 +40,15 @@ textarea{
 }
 
 .past {
- 
   background-color: #d3d3d3;
-  /* color: white; */
 }
 
 .present {
- 
   background-color: #ff6961;
-  /* color: white; */
 }
 
 .future {
-  
   background-color: #77dd77;
-  /* color: white; */
 }
 
 .saveBtn {
@@ -74,4 +62,12 @@ textarea{
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+textarea{
+  background: transparent;
+  border: none;
+  resize: none;
+  color: #000000;
+  border-left: 1px solid black;
+  padding: 10px;
 }
