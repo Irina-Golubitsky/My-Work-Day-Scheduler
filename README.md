@@ -1,4 +1,4 @@
-# scheduler
+# My Work Day Scheduler
 
 A simple calendar application that allows the user to save events for each hour of the workday
 ​
@@ -18,7 +18,7 @@ To enter an event click into a time block. To save new event click the save butt
 
 ![alt text](assets/img/page-view.png)| 
 ## Link
-Link to deployed application https://irina-golubitsky.github.io/code-quiz/
+Link to deployed application https://irina-golubitsky.github.io/My-Work-Day-Scheduler/
 
 ---
 MIT License
