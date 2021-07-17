@@ -5,7 +5,6 @@ $("#currentDay").text(currentDate);
 let startHour = 9; 
 let workDayLength = 9;
 // get or cleate list of events
-let list = [];
 let day = localStorage.getItem('current-day') || '';
 if (day === currentDate) {
     list = JSON.parse(localStorage.getItem('timelist'));
@@ -15,6 +14,7 @@ else {
     for (i = 0; i < workDayLength; i++) {
         list.push('');
     }
+    localStorage.setItem('timelist', JSON.stringify(list));
 }
 // show timeblocks
 let currenHour = moment().hour();
@@ -49,8 +49,8 @@ for (i = 0; i < workDayLength; i++) {
         // add on.click function
     saveBtn.on('click', function (event) {
         event.preventDefault();
-        let cuurentRow = $(this).attr('data-list-item');
-        list[cuurentRow] = $('#text' + cuurentRow).val();
+        let curentRow = $(this).attr('data-list-item');
+        list[curentRow] = $('#text' + curentRow).val();
             // update localStorage items
         localStorage.setItem('timelist', JSON.stringify(list));
         localStorage.setItem('current-day', currentDate);
