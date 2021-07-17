@@ -5,8 +5,11 @@ let workDayLength=9;
 $("#currentDay").text(currentDate);
 let list=[];
 // get or cleate list of events
-    list = JSON.parse(localStorage.getItem('timelist')) || [];
- if (list.length===0){
+let day=localStorage.getItem('current-day')||'';
+if (day===currentDate){
+    list = JSON.parse(localStorage.getItem('timelist'));}
+ else{
+    list=[];
     for(i=0;i<workDayLength;i++){
         list.push('');
     }
@@ -33,7 +36,7 @@ let list=[];
      }else{
         eventArea.addClass('future col-10 ');
      }
-     eventArea.text(list[i]+"rerer");
+     eventArea.text(list[i]);
      rowDiv.append(eventArea);
      // show save button
      let saveBtn=$('<button>');
@@ -48,6 +51,7 @@ let list=[];
        let cuurentRow=$(this).attr('data-list-item');
         list[cuurentRow]=$('#text'+cuurentRow).val();
       localStorage.setItem('timelist',JSON.stringify(list));
+      localStorage.setItem('current-day',currentDate);
      });
      
      rowDiv.append(saveBtn);
